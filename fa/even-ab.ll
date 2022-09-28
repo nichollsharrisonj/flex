@@ -44,7 +44,7 @@
 %option yyclass="Lexer"
 %option c++
 
-%s TRAP
+%s ZERO FIRSTONE SECONDONE
      
 EOLN    \r\n|\n\r|\n|\r
 
@@ -54,49 +54,23 @@ EOLN    \r\n|\n\r|\n|\r
 
 %}
 
-<INITIAL>"("     { left_open_round++; BEGIN(INITIAL); }
-<INITIAL>")"     {
-    if (left_open_round == 0) {
-        BEGIN(TRAP);
-    } else {
-        left_open_round--;
-        BEGIN(INITIAL);
-    }
-}
+<INITIAL>{EOLN} { report(false); }
+<ZERO>{EOLN} { report(false); }
+<FIRSTONE>{EOLN} { report(false); }
+<SECONDONE>{EOLN} { report(true); }
 
-<INITIAL>"["     { left_open_square++; BEGIN(INITIAL); }
-<INITIAL>"]"     {
-    if (left_open_square == 0) {
-        BEGIN(TRAP);
-    } else {
-        left_open_square--;
-        BEGIN(INITIAL);
-    }
-}
+<INITIAL>"0"    { BEGIN(ZERO); }
+<INITIAL>"1"    { BEGIN(INITIAL); }
 
-<INITIAL>"{"     { left_open_curly++; BEGIN(INITIAL); }
-<INITIAL>"}"     {
-    if (left_open_curly == 0) {
-        BEGIN(TRAP);
-    } else {
-        left_open_curly--;
-        BEGIN(INITIAL);
-    }
-}
+<ZERO>"0"       { BEGIN(ZERO); }
+<ZERO>"1"       { BEGIN(FIRSTONE); }
 
-<INITIAL>"<"     { left_open_triangle++; BEGIN(INITIAL); }
-<INITIAL>">"     {
-    if (left_open_triangle == 0) {
-        BEGIN(TRAP);
-    } else {
-        left_open_triangle--;
-        BEGIN(INITIAL);
-    }
-}
+<FIRSTONE>"0"  { BEGIN(FIRSTONE); }
+<FIRSTONE>"1"  { BEGIN(SECONDONE); }
 
-<TRAP>["("|")"|"{"|"}"|"["|"]"|"<"|">"]   { BEGIN(TRAP); }
-<INITIAL>{EOLN}   { report(true); }
-<TRAP>{EOLN}      { report(false); }
+<SECONDONE>"0" { BEGIN(ZERO); }
+<SECONDONE>"1" { BEGIN(INITIAL); }
+
 
 <<EOF>> {
     return 0;
