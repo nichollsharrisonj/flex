@@ -12,6 +12,11 @@ calculator: calculator.ll
 	flex -o calculator.cc calculator.ll
 	g++ -std=c++17 -g -o calculator calculator.cc
 
+abcs: abcs.ll
+	flex -o abcs.cc abcs.ll
+	g++ -std=c++17 -g -o abcs abcs.cc
+
+
 clean:
 	touch oh-one-one no-ab calculator foo~
 	rm *~ oh-one-one no-ab calculator
