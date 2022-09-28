@@ -54,15 +54,46 @@ EOLN    \r\n|\n\r|\n|\r
 
 %}
 
-<INITIAL>"("     { left_open++; BEGIN(INITIAL); }
+<INITIAL>"("     { left_open_round++; BEGIN(INITIAL); }
 <INITIAL>")"     {
-    if (left_open == 0) {
+    if (left_open_round == 0) {
         BEGIN(TRAP);
     } else {
-        left_open--;
+        left_open_round--;
         BEGIN(INITIAL);
     }
 }
+
+<INITIAL>"["     { left_open_square++; BEGIN(INITIAL); }
+<INITIAL>"]"     {
+    if (left_open_square == 0) {
+        BEGIN(TRAP);
+    } else {
+        left_open_square--;
+        BEGIN(INITIAL);
+    }
+}
+
+<INITIAL>"{"     { left_open_curly++; BEGIN(INITIAL); }
+<INITIAL>"}"     {
+    if (left_open_curly == 0) {
+        BEGIN(TRAP);
+    } else {
+        left_open_curly--;
+        BEGIN(INITIAL);
+    }
+}
+
+<INITIAL>"<"     { left_open_triangle++; BEGIN(INITIAL); }
+<INITIAL>">"     {
+    if (left_open_triangle == 0) {
+        BEGIN(TRAP);
+    } else {
+        left_open_triangle--;
+        BEGIN(INITIAL);
+    }
+}
+
 <TRAP>["("|")"]   { BEGIN(TRAP); }
 <INITIAL>{EOLN}   { report(true); }
 <TRAP>{EOLN}      { report(false); }
