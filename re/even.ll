@@ -34,10 +34,14 @@ EOLN    \r\n|\n\r|\n|\r
 
 %}
     
-^((01|10)((00)*|(11)*)*(01|10))*((00)*|(11)*)*{EOLN} {
+^((01|10)((00)*|(11)*)*(01|10))*{EOLN} {
     std::cout << remove_EOLNs(yytext) << " YES" << std::endl;
 }
     
+^((00)*|(11)*)*{EOLN} {
+    std::cout << remove_EOLNs(yytext) << " YES" << std::endl;
+}
+
 ^[01]*{EOLN} {
     std::cout << remove_EOLNs(yytext) << " NO" << std::endl;
 }
