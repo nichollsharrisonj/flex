@@ -1,6 +1,6 @@
-#line 1 "abcs.cc"
+#line 2 "oh-one-one.cc"
 
-#line 3 "abcs.cc"
+#line 4 "oh-one-one.cc"
 
 #define  YY_INT_ALIGNED short int
 
@@ -71,7 +71,6 @@ typedef int16_t flex_int16_t;
 typedef uint16_t flex_uint16_t;
 typedef int32_t flex_int32_t;
 typedef uint32_t flex_uint32_t;
-typedef uint64_t flex_uint64_t;
 #else
 typedef signed char flex_int8_t;
 typedef short int flex_int16_t;
@@ -202,7 +201,7 @@ typedef size_t yy_size_t;
 #endif
 
 /* %if-not-reentrant */
-extern yy_size_t yyleng;
+extern int yyleng;
 /* %endif */
 
 /* %if-c-only */
@@ -254,7 +253,7 @@ struct yy_buffer_state
 	/* Number of characters read into yy_ch_buf, not including EOB
 	 * characters.
 	 */
-	yy_size_t yy_n_chars;
+	int yy_n_chars;
 
 	/* Whether we "own" the buffer - i.e., we know we created it,
 	 * and can realloc() it to grow it, and should free() it to
@@ -389,14 +388,14 @@ int yyFlexLexer::yylex()
 #define YY_DO_BEFORE_ACTION \
 	(yytext_ptr) = yy_bp; \
 /* %% [2.0] code to fiddle yytext and yyleng for yymore() goes here \ */\
-	yyleng = (yy_size_t) (yy_cp - yy_bp); \
+	yyleng = (int) (yy_cp - yy_bp); \
 	(yy_hold_char) = *yy_cp; \
 	*yy_cp = '\0'; \
 /* %% [3.0] code to copy yytext_ptr to yytext[] goes here, if %array \ */\
 	(yy_c_buf_p) = yy_cp;
 /* %% [4.0] data tables for the DFA and the user's section 1 definitions go here */
-#define YY_NUM_RULES 5
-#define YY_END_OF_BUFFER 6
+#define YY_NUM_RULES 11
+#define YY_END_OF_BUFFER 12
 /* This struct is not used in this scanner,
    but its presence is necessary. */
 struct yy_trans_info
@@ -404,11 +403,11 @@ struct yy_trans_info
 	flex_int32_t yy_verify;
 	flex_int32_t yy_nxt;
 	};
-static const flex_int16_t yy_accept[23] =
+static const flex_int16_t yy_accept[25] =
     {   0,
-        0,    0,    6,    4,    5,    1,    1,    4,    4,    4,
-        1,    2,    2,    0,    0,    0,    0,    2,    3,    3,
-        3,    0
+        0,    0,    0,    0,    0,    0,    0,    0,   12,   10,
+        9,    9,    2,    1,    3,    4,    5,    6,    8,    8,
+        7,    9,    8,    0
     } ;
 
 static const YY_CHAR yy_ec[256] =
@@ -417,12 +416,12 @@ static const YY_CHAR yy_ec[256] =
         1,    1,    3,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    1,    4,    5,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    4,    5,    6,    1,
 
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
@@ -443,44 +442,42 @@ static const YY_CHAR yy_ec[256] =
         1,    1,    1,    1,    1
     } ;
 
-static const YY_CHAR yy_meta[7] =
+static const YY_CHAR yy_meta[6] =
     {   0,
-        1,    2,    3,    4,    4,    4
+        1,    2,    3,    1,    1
     } ;
 
-static const flex_int16_t yy_base[31] =
+static const flex_int16_t yy_base[29] =
     {   0,
-       28,    0,   29,   31,   31,    0,    0,    5,   24,   22,
-       31,    0,    0,    0,    0,    0,   10,   31,    0,    0,
-       31,   31,   13,   23,   23,   21,   21,   16,   19,   19
+        0,    0,    2,    0,    4,    0,    9,    0,   19,   20,
+        0,    0,   20,   20,   20,   20,   20,   20,    0,    0,
+       20,   20,   20,   20,   15,   15,   13,   13
     } ;
 
-static const flex_int16_t yy_def[31] =
+static const flex_int16_t yy_def[29] =
     {   0,
-       23,   22,   22,   22,   22,   24,   25,   22,    8,    9,
-       22,   26,   27,    8,    9,   10,   28,   22,   29,   30,
-       22,    0,   22,   22,   22,   22,   22,   22,   22,   22
+       24,    1,    1,    3,    3,    5,   24,    7,   24,   24,
+       25,   26,   24,   24,   24,   24,   24,   24,   27,   28,
+       24,   24,   24,    0,   24,   24,   24,   24
     } ;
 
-static const flex_int16_t yy_nxt[38] =
+static const flex_int16_t yy_nxt[26] =
     {   0,
-        4,    6,    7,    8,    9,   10,   12,   13,   14,   15,
-       16,   19,   20,    4,    4,    4,    4,   17,   17,   17,
-       21,   21,   18,   18,   11,   11,   17,   17,   22,    5,
-        3,   22,   22,   22,   22,   22,   22
+       10,   11,   12,   13,   14,   15,   16,   17,   18,   10,
+       19,   20,   21,   21,   23,   23,   22,   22,   24,    9,
+       24,   24,   24,   24,   24
     } ;
 
-static const flex_int16_t yy_chk[38] =
+static const flex_int16_t yy_chk[26] =
     {   0,
-        2,    2,    2,    2,    2,    2,    8,    8,    8,    8,
-        8,   17,   17,   23,   23,   23,   23,   28,   28,   28,
-       30,   29,   27,   26,   25,   24,   10,    9,    3,    1,
-       22,   22,   22,   22,   22,   22,   22
+        1,    1,    1,    1,    1,    3,    3,    5,    5,    7,
+        7,    7,    7,    7,   28,   27,   26,   25,    9,   24,
+       24,   24,   24,   24,   24
     } ;
 
-static const flex_int16_t yy_rule_linenum[5] =
+static const flex_int16_t yy_rule_linenum[11] =
     {   0,
-       39,   43,   47,   55
+       57,   58,   59,   60,   61,   62,   63,   64,   65,   71
     } ;
 
 /* The intent behind this definition is that it'll catch
@@ -490,19 +487,21 @@ static const flex_int16_t yy_rule_linenum[5] =
 #define yymore() yymore_used_but_not_detected
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
-#line 1 "abcs.ll"
-#line 2 "abcs.ll"
+#line 1 "oh-one-one.ll"
+#line 2 "oh-one-one.ll"
     #include <string>
     #include <iostream>
     #include <fstream>
-    #include "RELexer.hh"
+    #include "FALexer.hh"
 
     #undef YY_DECL
-    #define YY_DECL int RELexer::yylex(void)
+    #define YY_DECL int FALexer::yylex(void)
 
+    #define YY_USER_ACTION process(yytext);
+    
     #define yyterminate() return 0
     #define YY_NO_UNISTD_H
-    
+
     std::string remove_EOLNs(std::string txt) {
         int ending = txt.length();
         while (txt[ending-1] == '\r' || txt[ending-1] == '\n') {
@@ -510,11 +509,31 @@ static const flex_int16_t yy_rule_linenum[5] =
         }
         return txt.substr(0,ending);
     }
-        
-#line 514 "abcs.cc"
-#line 515 "abcs.cc"
+    
+    void FALexer::process(std::string txt) {
+        current = current + txt;
+    }
+    
+    void FALexer::report(bool accepted) {
+        std::cout << remove_EOLNs(current) << " ";
+        if (accepted) {
+            std::cout << " YES";
+        } else {   
+            std::cout << " NO";
+        }
+        std::cout << std::endl;
+        current = "";
+        BEGIN(0);
+    }
+
+#line 530 "oh-one-one.cc"
+
+#line 532 "oh-one-one.cc"
 
 #define INITIAL 0
+#define SAW0 1
+#define SAW01 2
+#define ACCEPT 3
 
 #ifndef YY_NO_UNISTD_H
 /* Special case for "unistd.h", since it is non-ANSI. We include it way
@@ -657,9 +676,6 @@ static int yy_flex_strlen ( const char * );
 
 /* %% [6.0] YY_RULE_SETUP definition goes here */
 #define YY_RULE_SETUP \
-	if ( yyleng > 0 ) \
-		YY_CURRENT_BUFFER_LVALUE->yy_at_bol = \
-				(yytext[yyleng - 1] == '\n'); \
 	YY_USER_ACTION
 
 /* %not-for-header */
@@ -707,16 +723,14 @@ YY_DECL
 
 	{
 /* %% [7.0] user's declarations go here */
-#line 31 "abcs.ll"
+#line 51 "oh-one-one.ll"
 
 
 
 
 
-#line 37 "abcs.ll"
-    
 
-#line 719 "abcs.cc"
+#line 734 "oh-one-one.cc"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -733,7 +747,6 @@ YY_DECL
 
 /* %% [9.0] code to set up and find next match goes here */
 		yy_current_state = (yy_start);
-		yy_current_state += YY_AT_BOL();
 yy_match:
 		do
 			{
@@ -746,13 +759,13 @@ yy_match:
 			while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 				{
 				yy_current_state = (int) yy_def[yy_current_state];
-				if ( yy_current_state >= 23 )
+				if ( yy_current_state >= 25 )
 					yy_c = yy_meta[yy_c];
 				}
 			yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
 			++yy_cp;
 			}
-		while ( yy_base[yy_current_state] != 31 );
+		while ( yy_base[yy_current_state] != 20 );
 
 yy_find_action:
 /* %% [10.0] code to find the action number goes here */
@@ -775,12 +788,12 @@ do_action:	/* This label is used only to access EOF actions. */
 			{
 			if ( yy_act == 0 )
 				std::cerr << "--scanner backing up\n";
-			else if ( yy_act < 5 )
+			else if ( yy_act < 11 )
 				std::cerr << "--accepting rule at line " << yy_rule_linenum[yy_act] <<
 				         "(\"" << yytext << "\")\n";
-			else if ( yy_act == 5 )
+			else if ( yy_act == 11 )
 				std::cerr << "--accepting default rule (\"" << yytext << "\")\n";
-			else if ( yy_act == 6 )
+			else if ( yy_act == 12 )
 				std::cerr << "--(end of buffer or a NUL)\n";
 			else
 				std::cerr << "--EOF (start condition " << YY_START << ")\n";
@@ -797,50 +810,76 @@ do_action:	/* This label is used only to access EOF actions. */
 			goto yy_find_action;
 
 case 1:
-/* rule 1 can match eol */
 YY_RULE_SETUP
-#line 39 "abcs.ll"
-{
-    std::cout << remove_EOLNs(yytext) << " NO" << std::endl;
-}
+#line 57 "oh-one-one.ll"
+{ BEGIN(INITIAL); }
 	YY_BREAK
 case 2:
-/* rule 2 can match eol */
 YY_RULE_SETUP
-#line 43 "abcs.ll"
-{
-    std::cout << remove_EOLNs(yytext) << " YES" << std::endl;
-}
+#line 58 "oh-one-one.ll"
+{ BEGIN(SAW0); }
 	YY_BREAK
 case 3:
-/* rule 3 can match eol */
 YY_RULE_SETUP
-#line 47 "abcs.ll"
-{
-    std::cout << remove_EOLNs(yytext) << " NO" << std::endl;
-}
+#line 59 "oh-one-one.ll"
+{ BEGIN(SAW0); }
+	YY_BREAK
+case 4:
+YY_RULE_SETUP
+#line 60 "oh-one-one.ll"
+{ BEGIN(SAW01); }
+	YY_BREAK
+case 5:
+YY_RULE_SETUP
+#line 61 "oh-one-one.ll"
+{ BEGIN(SAW0); }
+	YY_BREAK
+case 6:
+YY_RULE_SETUP
+#line 62 "oh-one-one.ll"
+{ BEGIN(ACCEPT); }
+	YY_BREAK
+case 7:
+YY_RULE_SETUP
+#line 63 "oh-one-one.ll"
+{ BEGIN(ACCEPT); }
+	YY_BREAK
+case 8:
+/* rule 8 can match eol */
+YY_RULE_SETUP
+#line 64 "oh-one-one.ll"
+{ report(true); }
+	YY_BREAK
+case 9:
+/* rule 9 can match eol */
+YY_RULE_SETUP
+#line 65 "oh-one-one.ll"
+{ report(false); }
 	YY_BREAK
 case YY_STATE_EOF(INITIAL):
-#line 51 "abcs.ll"
+case YY_STATE_EOF(SAW0):
+case YY_STATE_EOF(SAW01):
+case YY_STATE_EOF(ACCEPT):
+#line 67 "oh-one-one.ll"
 {
     return 0;
 }
 	YY_BREAK
-case 4:
+case 10:
 YY_RULE_SETUP
-#line 55 "abcs.ll"
+#line 71 "oh-one-one.ll"
 {
     std::string txt { yytext };
     std::cerr << "Unexpected \"" << txt << "\" in input." << std::endl;
     return -1;
 }
 	YY_BREAK
-case 5:
+case 11:
 YY_RULE_SETUP
-#line 61 "abcs.ll"
+#line 77 "oh-one-one.ll"
 YY_FATAL_ERROR( "flex scanner jammed" );
 	YY_BREAK
-#line 843 "abcs.cc"
+#line 883 "oh-one-one.cc"
 
 	case YY_END_OF_BUFFER:
 		{
@@ -1066,9 +1105,9 @@ void yyFlexLexer::switch_streams( std::istream* new_in, std::ostream* new_out )
 }
 
 #ifdef YY_INTERACTIVE
-size_t yyFlexLexer::LexerInput( char* buf, size_t /* max_size */ )
+int yyFlexLexer::LexerInput( char* buf, int /* max_size */ )
 #else
-size_t yyFlexLexer::LexerInput( char* buf, size_t max_size )
+int yyFlexLexer::LexerInput( char* buf, int max_size )
 #endif
 {
 	if ( yyin.eof() || yyin.fail() )
@@ -1095,7 +1134,7 @@ size_t yyFlexLexer::LexerInput( char* buf, size_t max_size )
 #endif
 }
 
-void yyFlexLexer::LexerOutput( const char* buf, size_t size )
+void yyFlexLexer::LexerOutput( const char* buf, int size )
 {
 	(void) yyout.write( buf, size );
 }
@@ -1160,7 +1199,7 @@ int yyFlexLexer::yy_get_next_buffer()
 
 	else
 		{
-			yy_size_t num_to_read =
+			int num_to_read =
 			YY_CURRENT_BUFFER_LVALUE->yy_buf_size - number_to_move - 1;
 
 		while ( num_to_read <= 0 )
@@ -1174,7 +1213,7 @@ int yyFlexLexer::yy_get_next_buffer()
 
 			if ( b->yy_is_our_buffer )
 				{
-				yy_size_t new_size = b->yy_buf_size * 2;
+				int new_size = b->yy_buf_size * 2;
 
 				if ( new_size <= 0 )
 					b->yy_buf_size += b->yy_buf_size / 8;
@@ -1232,7 +1271,7 @@ int yyFlexLexer::yy_get_next_buffer()
 
 	if (((yy_n_chars) + number_to_move) > YY_CURRENT_BUFFER_LVALUE->yy_buf_size) {
 		/* Extend the array by 50%, plus the number we really need. */
-		yy_size_t new_size = (yy_n_chars) + number_to_move + ((yy_n_chars) >> 1);
+		int new_size = (yy_n_chars) + number_to_move + ((yy_n_chars) >> 1);
 		YY_CURRENT_BUFFER_LVALUE->yy_ch_buf = (char *) yyrealloc(
 			(void *) YY_CURRENT_BUFFER_LVALUE->yy_ch_buf, (yy_size_t) new_size  );
 		if ( ! YY_CURRENT_BUFFER_LVALUE->yy_ch_buf )
@@ -1264,7 +1303,6 @@ int yyFlexLexer::yy_get_next_buffer()
     
 /* %% [15.0] code to get the start state into yy_current_state goes here */
 	yy_current_state = (yy_start);
-	yy_current_state += YY_AT_BOL();
 
 	for ( yy_cp = (yytext_ptr) + YY_MORE_ADJ; yy_cp < (yy_c_buf_p); ++yy_cp )
 		{
@@ -1278,7 +1316,7 @@ int yyFlexLexer::yy_get_next_buffer()
 		while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 			{
 			yy_current_state = (int) yy_def[yy_current_state];
-			if ( yy_current_state >= 23 )
+			if ( yy_current_state >= 25 )
 				yy_c = yy_meta[yy_c];
 			}
 		yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
@@ -1311,11 +1349,11 @@ int yyFlexLexer::yy_get_next_buffer()
 	while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 		{
 		yy_current_state = (int) yy_def[yy_current_state];
-		if ( yy_current_state >= 23 )
+		if ( yy_current_state >= 25 )
 			yy_c = yy_meta[yy_c];
 		}
 	yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
-	yy_is_jam = (yy_current_state == 22);
+	yy_is_jam = (yy_current_state == 24);
 
 		return yy_is_jam ? 0 : yy_current_state;
 }
@@ -1337,7 +1375,7 @@ int yyFlexLexer::yy_get_next_buffer()
 	if ( yy_cp < YY_CURRENT_BUFFER_LVALUE->yy_ch_buf + 2 )
 		{ /* need to shift things up to make room */
 		/* +2 for EOB chars. */
-		yy_size_t number_to_move = (yy_n_chars) + 2;
+		int number_to_move = (yy_n_chars) + 2;
 		char *dest = &YY_CURRENT_BUFFER_LVALUE->yy_ch_buf[
 					YY_CURRENT_BUFFER_LVALUE->yy_buf_size + 2];
 		char *source =
@@ -1389,7 +1427,7 @@ int yyFlexLexer::yy_get_next_buffer()
 
 		else
 			{ /* need more input */
-			yy_size_t offset = (yy_c_buf_p) - (yytext_ptr);
+			int offset = (int) ((yy_c_buf_p) - (yytext_ptr));
 			++(yy_c_buf_p);
 
 			switch ( yy_get_next_buffer(  ) )
@@ -1436,7 +1474,6 @@ int yyFlexLexer::yy_get_next_buffer()
 	(yy_hold_char) = *++(yy_c_buf_p);
 
 /* %% [19.0] update BOL and yylineno */
-	YY_CURRENT_BUFFER_LVALUE->yy_at_bol = (c == '\n');
 
 	return c;
 }
@@ -1871,7 +1908,7 @@ void yyFlexLexer::LexerError( const char* msg )
 	do \
 		{ \
 		/* Undo effects of setting up yytext. */ \
-        yy_size_t yyless_macro_arg = (n); \
+        int yyless_macro_arg = (n); \
         YY_LESS_LINENO(yyless_macro_arg);\
 		yytext[yyleng] = (yy_hold_char); \
 		(yy_c_buf_p) = yytext + yyless_macro_arg; \
@@ -1958,13 +1995,13 @@ void yyfree (void * ptr )
 
 /* %ok-for-header */
 
-#line 61 "abcs.ll"
+#line 77 "oh-one-one.ll"
 
 
 int main(int argc, char** argv) {
     std::string src_name { argv[1] };
     std::ifstream ins { src_name };
-    RELexer lexer { &ins };
+    FALexer lexer { &ins };
     return lexer.yylex();
 }
 
