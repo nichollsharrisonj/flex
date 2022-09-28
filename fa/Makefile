@@ -16,11 +16,11 @@ multiple-balanced: multiple-balanced.ll multiple-balanced.hh
 	flex -o multiple-balanced.cc multiple-balanced.ll
 	g++ -std=c++17 -g -o multiple-balanced multiple-balanced.cc
 
-even-0s-even-1s: even-0s-even-1s.ll even-0s-even-1s.hh
+even-0s-even-1s: even-0s-even-1s.ll FALexer.hh
 	flex -o even-0s-even-1s.cc even-0s-even-1s.ll
 	g++ -std=c++17 -g -o even-0s-even-1s even-0s-even-1s.cc
 
-even-abs: even-abs.ll even-abs.hh
+even-abs: even-abs.ll FALexer.hh
 	flex -o even-abs.cc even-abs.ll
 	g++ -std=c++17 -g -o even-abs even-abs.cc
 
