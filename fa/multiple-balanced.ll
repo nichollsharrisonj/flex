@@ -94,7 +94,7 @@ EOLN    \r\n|\n\r|\n|\r
     }
 }
 
-<TRAP>["("|")"|"{"|"}"|"["|"]"|"<"|">"]   { BEGIN(TRAP); }
+<TRAP>["("|")"|"{"|"}"|"\["|"\]"|"<"|">"]   { BEGIN(TRAP); }
 <INITIAL>{EOLN}   { report(true); }
 <TRAP>{EOLN}      { report(false); }
 
