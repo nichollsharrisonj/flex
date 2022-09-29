@@ -2,7 +2,7 @@
     #include <string>
     #include <iostream>
     #include <fstream>
-    #include "balanced.hh"
+    #include "multiple-balanced.hh"
 
     #undef YY_DECL
     #define YY_DECL int balanced::Lexer::yylex(void)
@@ -26,14 +26,22 @@
     
     void balanced::Lexer::report(bool accepted) {
         std::cout << remove_EOLNs(current) << " ";
-        if (accepted && left_open == 0) {
+        if (accepted && 
+            !(left_open_square || 
+              left_open_curly || 
+              left_open_round || 
+              left_open_triangle)) {
+
             std::cout << "YES";
         } else {   
             std::cout << "NO";
         }
         std::cout << std::endl;
         current = "";
-        left_open = 0;
+        left_open_square = 0;
+        left_open_curly = 0;
+        left_open_round = 0;
+        left_open_triangle = 0;
         BEGIN(0);
     }
 %}

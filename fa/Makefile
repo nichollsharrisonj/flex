@@ -25,7 +25,7 @@ even-abs: even-abs.ll FALexer.hh
 	g++ -std=c++17 -g -o even-abs even-abs.cc
 
 clean:
-	touch oh-one-one balanced multiple-balaned even-abs end-oh-one-one even-0s-even-1s foo~
-	rm *~ oh-one-one balanced multiple-balaned even-abs end-oh-one-one even-0s-even-1s
-	touch oh-one-one.cc balanced.cc multiple-balaned.cc even-abs.cc end-oh-one-one.cc even-0s-even-1s.cc
-	rm oh-one-one.cc balanced.cc multiple-balaned.cc even-abs.cc end-oh-one-one.cc even-0s-even-1s.cc
+	touch oh-one-one balanced multiple-balanced even-abs end-oh-one-one even-0s-even-1s foo~
+	rm *~ oh-one-one balanced multiple-balanced even-abs end-oh-one-one even-0s-even-1s
+	touch oh-one-one.cc balanced.cc multiple-balanced.cc even-abs.cc end-oh-one-one.cc even-0s-even-1s.cc
+	rm oh-one-one.cc balanced.cc multiple-balanced.cc even-abs.cc end-oh-one-one.cc even-0s-even-1s.cc
