@@ -2,6 +2,7 @@
 #define _BAZ_HH
 
 #include <iostream>
+#include <stack>
 
 #if ! defined(yyFlexLexerOnce)
 #include <FlexLexer.h>
