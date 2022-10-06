@@ -2,6 +2,7 @@
 #define _FOO_HH
 
 #include <iostream>
+#include <stack>
 
 #if ! defined(yyFlexLexerOnce)
 #include <FlexLexer.h>
@@ -33,11 +34,18 @@ private:
     // Used by do_foo.
     int line, column;
     int start_line, start_column;
+
+    // Indent length
+    int indent;
+    // Stack of indents
+    std::stack<int> indents;
     //
     // Bump the line/column
     void advance_location(std::string txt);
     //
     void do_foo(void);
+    //
+    int push_indent(void);
 };
     
 } // end foo namespace 

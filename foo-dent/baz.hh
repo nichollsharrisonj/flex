@@ -7,6 +7,14 @@
 #include <FlexLexer.h>
 #endif
 
+enum token_type_t {
+    Token_EOF = 0,
+    Token_BAZ,
+    Token_EOLN,
+    Token_INDENT,
+    Token_DEDENT
+};
+
 namespace baz {
 class Lexer : public yyFlexLexer {
 public:
@@ -32,11 +40,17 @@ private:
     // Token location information. Advanced by advance_location.
     int line, column;
     int start_line, start_column;
+
+    // Indent length
+    int indent;
+    // Stack of indents
+    std::stack<int> indents;
     //
     // Bump the line/column
     void advance_location(std::string txt);
+    //
 };
-    
+
 } // end baz namespace 
 
 

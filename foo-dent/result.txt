@@ -1,0 +1,25 @@
+FOO[1,1] 
+INDENT[2,1] FOO[2,3] 
+INDENT[3,1] FOO[3,6] FOO[4,6] DEDENT[5,1] FOO[5,3] FOO[6,3] 
+INDENT[7,1] FOO[7,11] 
+INDENT[8,1] FOO[8,14] DEDENT[9,1] DEDENT[9,1] FOO[9,3] 
+INDENT[10,1] FOO[10,7] FOO[11,7] 
+INDENT[12,1] FOO[12,8] DEDENT[13,1] FOO[13,7] 
+INDENT[14,1] FOO[14,12] FOO[15,12] DEDENT[16,1] DEDENT[16,1] FOO[16,3] 
+INDENT[17,1] FOO[17,18] foo
+  foo
+     foo
+     foo
+  foo
+  foo
+          foo
+             foo
+  foo
+      foo
+      foo
+       foo
+      foo
+           foo
+           foo
+  foo
+                 foo
